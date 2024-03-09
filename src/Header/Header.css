@@ -3,7 +3,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #000222;
+    background-color: #202020;
     color: #ffffff;
     padding: 10px 20px;
     z-index: 1000;
@@ -43,12 +43,12 @@ body {
 .header__middle input {
     padding: 5px;
     margin-right: 10px;
-    width: 200px;
+    width: 250px;
 }
 
 .header__middle button {
     padding: 5px 10px;
-    background-color: #555555;
+    background-color: #114440;
     color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
