@@ -1,0 +1,61 @@
+.homepage {
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.club-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.club1 {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-image: url('./aventura.jpg');
+    background-position: center;
+    text-shadow: 2px 2px 4px #000000;
+        
+}
+
+.club2 {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-image: url('./estrategia.jpg');
+    background-position: center;
+    text-shadow: 2px 2px 4px #000000;
+} 
+
+.club3 {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-image: url('./construccion.jpg');
+    background-position: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.club4 {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-image: url('./furvol.jpg');
+    background-position: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.club5 {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-image: url('./zombie.png');
+    background-position: center;
+    text-shadow: 2px 2px 4px #000000;
+}
