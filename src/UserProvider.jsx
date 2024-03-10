@@ -9,7 +9,7 @@ export default function UserProvider({children}){
     
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            setUser[user]
+            setUser(user)
         });
       }, []);
 

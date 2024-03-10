@@ -26,8 +26,8 @@ export default function InicioSesion() {
             return;
         }else{
           const usuario = await Logearse(email, password);
-          if (usuario !== null) {
-              navegar('/app');
+          if (usuario) {
+              navegar('/app', {replace: true});
           } else {
               setError('Las credenciales de inicio de sesión son incorrectas.');
           }
@@ -40,8 +40,8 @@ export default function InicioSesion() {
   const handleGoogleLogin = async () => {
     try {
       const usuario = await LogearseConGoogle();
-      if (usuario !== null) {
-        navegar('/app');
+      if (usuario) {
+        navegar('/app', {replace: true});
       } else {
         setError('Error al iniciar sesión con Google.');
       }
@@ -51,26 +51,30 @@ export default function InicioSesion() {
   };
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.text}>Iniciar Sesión</h2>
-      <div className={styles.form}>
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Correo Electrónico"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </form>
+    <div className={styles.inicio}>
+      <div className={styles.container}>
+        <h2 className={styles.text}>Iniciar Sesión</h2>
+        <div className={styles.form}>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Correo Electrónico"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </form>
+        </div>
         <button className={styles.buttonS} onClick={() => handleLogin()}>Iniciar Sesión</button>
         <button type="button" onClick={() => handleGoogleLogin()}>Iniciar Sesión con Google</button>
         {error && <p className={styles.error}>{error}</p>}
+        <p>No tienes cuenta? Registrate acá abajo</p>
+        <button onClick={() => navegar('/register', {replace: true})}>Registro</button>
       </div>
     </div>
   );
