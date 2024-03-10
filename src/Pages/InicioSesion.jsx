@@ -14,7 +14,7 @@ export default function InicioSesion() {
 
   useEffect(() =>{
     if (usuario) {
-      navegar('/app', {replace: true})
+      navegar('/', {replace: true})
     }
   }, [usuario, navegar]);
 
@@ -27,7 +27,7 @@ export default function InicioSesion() {
         }else{
           const usuario = await Logearse(email, password);
           if (usuario) {
-              navegar('/app', {replace: true});
+              navegar('/', {replace: true});
           } else {
               setError('Las credenciales de inicio de sesión son incorrectas.');
           }
@@ -41,7 +41,7 @@ export default function InicioSesion() {
     try {
       const usuario = await LogearseConGoogle();
       if (usuario) {
-        navegar('/app', {replace: true});
+        navegar('/', {replace: true});
       } else {
         setError('Error al iniciar sesión con Google.');
       }

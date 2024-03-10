@@ -20,7 +20,7 @@ export default function Registro() {
 
   useEffect(() =>{
     if (usuario) {
-      navegar('/app', {replace: true})
+      navegar('/', {replace: true})
     }
   }, [usuario, navegar]);
 
@@ -51,7 +51,7 @@ export default function Registro() {
       const usuario = await Registrarse(nombre, apellido, nombreUsuario, email, contraseña, videojuegoPreferido);
       console.log(usuario)
       if (usuario) {
-        navegar('/app', {replace: true});
+        navegar('/', {replace: true});
       } else {
         setError('La cuenta ya existe.');
       }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css'; // Asegúrate de importar tu archivo CSS
 
 
@@ -12,6 +13,7 @@ const juegos = [
 
 function Header() {
     const [searchTerm, setSearchTerm] = useState('');
+    const navegar = useNavigate();
 
     const handleSearch = () => {
         // Buscar el juego en la base de datos de Firebase
@@ -27,7 +29,7 @@ function Header() {
 
     return (
         <header className="header">
-            <div className="header__left">
+            <div className="header__left" onClick={() => navegar('/', {replace: true})}>
                 <img src= "/cube-3d-design-element.png" alt="Home" className="header__button" />
             </div>
                 <div className="header__middle">
@@ -42,7 +44,7 @@ function Header() {
             </div>
             <div className="header__right">
                 {/* Imagen para ir al perfil del usuario (sustituye "profile.png" por la ruta de tu imagen) */}
-                <img src="/profile.png" alt="Perfil" className="header__button" />
+                <img src="/profile.png" alt="Perfil" className="header__button" onClick={() => navegar('/profilepage', {replace: true})}/>
             </div>
         </header>
     );

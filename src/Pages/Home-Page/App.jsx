@@ -1,8 +1,8 @@
 /*import { useState } from 'react'*/
 
 import './App.css'
-import Header from './Header/Header.jsx'
-import HomePage from './Home-Page/homepage.jsx';
+import Header from '../Header/Header.jsx'
+import HomePage from './homepage.jsx';
 
 function App() {
 
