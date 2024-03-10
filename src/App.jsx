@@ -2,20 +2,17 @@
 
 import './App.css'
 import Header from './Header/Header.jsx'
-/*import Club1 from './club1/club1.jsx'*/
-import Club2 from './club2/club2.jsx'
-/*import HomePage from './Home-Page/homepage.jsx';
-<HomePage />*/
-/*<Header />
-<Club2 />*/
-
+import HomePage from './Home-Page/homepage.jsx';
 
 function App() {
+
   return (
     <div>
-        
+        <Header />
+        <HomePage />
     </div>
   )
 }
+
 export default App
 
