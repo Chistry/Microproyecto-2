@@ -70,7 +70,7 @@ export default function InicioSesion() {
             />
           </form>
         </div>
-        <button className={styles.buttonS} onClick={() => handleLogin()}>Iniciar Sesión</button>
+        <button className={styles.buttonS} onClick={() => handleLogin()} type="submit">Iniciar Sesión</button>
         <button type="button" onClick={() => handleGoogleLogin()}>Iniciar Sesión con Google</button>
         {error && <p className={styles.error}>{error}</p>}
         <p>No tienes cuenta? Registrate acá abajo</p>

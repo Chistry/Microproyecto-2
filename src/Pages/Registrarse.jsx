@@ -46,10 +46,10 @@ export default function Registro() {
     obtenerVideojuegos();
   }, []);
 
-  const handleRegistro = async (e) => {
-    e.preventDefault();
+  const handleRegistro = async () => {
     try {
       const usuario = await Registrarse(nombre, apellido, nombreUsuario, email, contraseña, videojuegoPreferido);
+      console.log(usuario)
       if (usuario) {
         navegar('/app', {replace: true});
       } else {
@@ -79,7 +79,7 @@ export default function Registro() {
                 </select>
             </form>
         </div>
-        <button className={styles.buttonr} type="submit">Registrarse</button>
+        <button className={styles.buttonr} onClick={() => handleRegistro()}>Registrarse</button>
         {error && <p className={styles.error}>{error}</p>}
         <p>Tienes cuenta? Inicia sesión acá abajo</p>
         <button onClick={() => navegar('/login', {replace: true})}>Inicio Sesión</button>

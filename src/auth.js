@@ -1,5 +1,5 @@
 import { auth, db } from './firebase';
-import { doc, setDoc, collection, query, where, getDocs } from 'firebase/firestore';
+import { doc, query, where, getDocs, setDoc, collection } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 
 export async function Logearse(email, password) {
@@ -37,7 +37,7 @@ export async function LogearseConGoogle() {
     }
   }
 
-export async function Registrarse(nombre, apellido, nombreUsuario, email, contraseña, videojuegoPreferido) {
+  export async function Registrarse(nombre, apellido, nombreUsuario, email, contraseña, videojuegoPreferido) {
     try {
         const { user } = await createUserWithEmailAndPassword(auth, email, contraseña);
         const ClubdeAventureros = false;
