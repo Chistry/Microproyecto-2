@@ -5,6 +5,6 @@
   text-align: center;
 }
 body {
-  background-image: url('./videojogo.png');
-  background-size:100% ; /* Asegura que la imagen de fondo cubra todo el elemento */
+  background-image: url('./Designer.png');
+  background-size:auto;
 }
