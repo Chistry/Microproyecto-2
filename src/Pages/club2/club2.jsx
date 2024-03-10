@@ -2,6 +2,7 @@ import './club2.css';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase.js'; // Ajusta la ruta según la estructura de tu proyecto
 import { collection, getDocs } from 'firebase/firestore';
+import Header from '../Header/Header.jsx';
 
 const Club2 = () => {
     const [clubName, setClubName] = useState('');
@@ -99,6 +100,7 @@ const Club2 = () => {
 
     return (
         <div className="container">
+            <Header/>
             <div className="image-container">
                 <img src="./lol.jpg" alt="Imagen del club" />
             </div>

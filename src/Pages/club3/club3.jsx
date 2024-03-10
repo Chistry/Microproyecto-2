@@ -1,10 +1,10 @@
-import './club1.css';
+import './club3.css';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase.js'; // Ajusta la ruta según la estructura de tu proyecto
 import { collection, getDocs } from 'firebase/firestore';
 import Header from '../Header/Header.jsx';
 
-const Club2 = () => {
+const Club3 = () => {
     const [clubName, setClubName] = useState('');
     const [clubDescription, setClubDescription] = useState('');
     const [clubVideojuegos1, setClubVideojuegos1] = useState('');
@@ -33,11 +33,11 @@ const Club2 = () => {
 
                 const ClubDatabase = snapshot.docs[0].data();
 
-                const nombre = ClubDatabase[1].nombre;
-                const descripcion = ClubDatabase[1].descripcion;
-                const videojuego1 = ClubDatabase[1].videojuegos[0];
-                const videojuego2 = ClubDatabase[1].videojuegos[1];
-                const videojuego3 = ClubDatabase[1].videojuegos[2];
+                const nombre = ClubDatabase[3].nombre;
+                const descripcion = ClubDatabase[3].descripcion;
+                const videojuego1 = ClubDatabase[3].videojuegos[0];
+                const videojuego2 = ClubDatabase[3].videojuegos[1];
+                const videojuego3 = ClubDatabase[3].videojuegos[2];
 
 
 
@@ -102,7 +102,7 @@ const Club2 = () => {
         <div className="container">
             <Header/>
             <div className="image-container">
-                <img src="./club1image.jpg" alt="Imagen del club" />
+                <img src="./minecraft.jpg" alt="Imagen del club" />
             </div>
             <div className="content-and-image-container">
                 <div className="content-container">
@@ -134,4 +134,4 @@ const Club2 = () => {
     );
 };
 
-export default Club2;
+export default Club3;
