@@ -29,7 +29,7 @@ body {
     max-width: 100%; /* Añade esta línea */
     position:absolute; /* Añade esta línea */
     right: 0 !important;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .image-container img {
@@ -78,12 +78,18 @@ body {
     margin-left: 30px; /* Añade esta línea */
 }
 
-.games-section1 h2, .games-section2 h2 {
+.games-section3 {
+    flex: 1;
+    background-color: rgb(16, 46, 48);
+    margin-left: 30px; /* Añade esta línea */
+}
+
+.games-section1 h2, .games-section2 h2, .games-section3 h2 {
     text-align: center;
     text-shadow: 2px 2px 4px #000000;
 }
 
-.games-section1 ul, .games-section2 ul {
+.games-section1 ul, .games-section2 ul, .games-section3 ul {
     text-align:justify;
     margin-right: 20px;
 }
