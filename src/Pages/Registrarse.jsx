@@ -50,8 +50,8 @@ export default function Registro() {
     e.preventDefault();
     try {
       const usuario = await Registrarse(nombre, apellido, nombreUsuario, email, contraseña, videojuegoPreferido);
-      if (usuario !== null) {
-        navegar('/app');
+      if (usuario) {
+        navegar('/app', {replace: true});
       } else {
         setError('La cuenta ya existe.');
       }
@@ -61,25 +61,30 @@ export default function Registro() {
   };
 
   return (
-    <div className={styles.container}>
-      <h2>Registro</h2>
-      <div> 
-        <form onSubmit={handleRegistro}>
-            <input type="text" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-            <input type="text" placeholder="Apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} />
-            <input type="text" placeholder="Nombre de usuario" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} />
-            <input type="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder="Contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
-            <select value={videojuegoPreferido} onChange={(e) => setVideojuegoPreferido(e.target.value)}>
-            <option value="">Seleccione su videojuego preferido</option>
-            {videojuegos.map((juego, index) => (
-                <option key={index} value={juego}>{juego}</option>
-            ))}
-            </select>
-            <button type="submit">Registrarse</button>
-            {error && <p className={styles.error}>{error}</p>}
-        </form>
-      </div>
+    <div className={styles.inicio}>
+        <div className={styles.container}>
+        <h2>Registro</h2>
+        <div> 
+            <form onSubmit={handleRegistro}>
+                <input type="text" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                <input type="text" placeholder="Apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} />
+                <input type="text" placeholder="Nombre de usuario" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} />
+                <input type="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="password" placeholder="Contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
+                <select value={videojuegoPreferido} onChange={(e) => setVideojuegoPreferido(e.target.value)}>
+                <option value="">Seleccione su videojuego preferido</option>
+                {videojuegos.map((juego, index) => (
+                    <option key={index} value={juego}>{juego}</option>
+                ))}
+                </select>
+            </form>
+        </div>
+        <button className={styles.buttonr} type="submit">Registrarse</button>
+        {error && <p className={styles.error}>{error}</p>}
+        <p>Tienes cuenta? Inicia sesión acá abajo</p>
+        <button onClick={() => navegar('/login', {replace: true})}>Inicio Sesión</button>
+        </div>
     </div>
+
   );
 }

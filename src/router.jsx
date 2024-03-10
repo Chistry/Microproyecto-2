@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import InicioSesion from './Pages/InicioSesion.jsx'
 import Registrarse from './Pages/Registrarse.jsx'
-import AppLayout from './Layout/AppLayout.jsx'
+import AppLayout from './AppLayout.jsx'
+import PerfilUsuario from './Pages/PerfilUsuario.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
     {
       path: '/app',
       element: <AppLayout />,
+    },
+    {
+      path: '/profilepage',
+      element: <PerfilUsuario />,
     },
   ]);

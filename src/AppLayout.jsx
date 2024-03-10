@@ -1,7 +1,7 @@
-import { useUser } from '../user';
+import { useUser } from './user';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Deslogearse } from '../auth';
+import { Deslogearse } from './auth';
 import styles from './AppLayout.module.css';
 
 export default function AppLayout({children}){
