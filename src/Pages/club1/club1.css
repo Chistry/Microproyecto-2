@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    overflow: hidden; /* Añade esta línea */
+    overflow: hidden;
     margin: 0;
 }
 
@@ -9,7 +9,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Evita que el contenido se desborde */
+    overflow: hidden; 
 }
 
 .content-and-image-container1 {
@@ -68,14 +68,14 @@ body {
 .games-section1 {
     flex: 1;
     background-color: rgb(16, 46, 48);
-    margin-right: 30px; /* Añade esta línea */
+    margin-right: 30px;
 }
 
 
 .games-section2 {
     flex: 1;
     background-color: rgb(16, 46, 48);
-    margin-left: 30px; /* Añade esta línea */
+    margin-left: 30px; 
 }
 
 .games-section1 h2, .games-section2 h2 {

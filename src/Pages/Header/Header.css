@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 header {
     position: fixed;
     top: 0;
@@ -10,6 +13,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
 
 body {
@@ -18,7 +22,7 @@ body {
 }
 
 .header__left {
-    flex: 0;
+    flex: auto;
     display: flex;
     align-items: center;
 }
@@ -30,8 +34,24 @@ body {
 }
 
 .header__middle {
-    flex: 3;
-    text-align: center;
+    flex: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+.header__middle input {
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 12px;
+    width: 250px;
 }
 
 .header__button {
@@ -54,3 +74,24 @@ body {
     cursor: pointer;
 }
 
+.found-game h3 {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.found-game {
+    background-color: #065a45; /* Cambia este color según tus necesidades */
+    border: 2px solid #ffffff; /* Define el tamaño y el color del borde */
+    margin: 10px; /* Añade espacio alrededor de cada elemento */
+    padding: 10px; /* Añade espacio dentro de cada elemento */
+    /* Aquí puedes agregar más estilos si lo necesitas */
+}
+
+.found-games-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Esto permitirá que los elementos pasen a la siguiente línea si no hay suficiente espacio */
+    justify-content: center; /* Centra los elementos en la línea */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+}
