@@ -1,6 +1,7 @@
-.container {
+.container1 {
   background-color: #202020;
-  width: 500px;
+  width: 100%;
+  max-width: 500px; 
   padding: 20px;
   border: 1px solid #ccc;
   display: flex;
@@ -11,18 +12,20 @@
 }
 
 .text{
-  display: flex;
-  align-items: center;
+  font-size: 12px;
 }
 
 input {
-  display: flex;
-  align-items: center;
-  width: 400px;
+  width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+button{
+  background-color: rgb(32, 145, 126);
+  font-style: oblique;
 }
 
 .buttonG{
@@ -38,11 +41,24 @@ input {
   cursor: pointer;
 }
 
-.text{
-  font-size: 12px;
-}
-
 .error {
   color: red;
   font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .container1 {
+      width: 90%;
+      overflow: auto;
+  }
+
+  input {
+      width: 90%;
+  }
+
+  .buttonS,
+  .text,
+  button {
+      width: 100%;
+  }
 }

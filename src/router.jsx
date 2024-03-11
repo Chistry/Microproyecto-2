@@ -8,6 +8,7 @@ import Club2 from './Pages/club2/club2.jsx'
 import Club3 from './Pages/club3/club3.jsx'
 import Club4 from './Pages/club4/club4.jsx'
 import Club5 from './Pages/club5/club5.jsx'
+import EditarPerfil from './Pages/EditarPerfil.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -45,5 +46,9 @@ export const router = createBrowserRouter([
     {
       path: '/profilepage',
       element: <PerfilUsuario />,
+    },
+    {
+      path: '/editprofilepage',
+      element: <EditarPerfil />,
     }
   ]);

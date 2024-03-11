@@ -52,7 +52,7 @@ export default function InicioSesion() {
 
   return (
     <div className={styles.inicio}>
-      <div className={styles.container}>
+      <div className={styles.container1}>
         <h2>Iniciar Sesión</h2>
         <div className={styles.form}>
           <form onSubmit={handleLogin}>

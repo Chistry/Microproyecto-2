@@ -6,17 +6,20 @@
 
 .container {
     background-color: #202020;
-    max-width: 400px;
+    width: 100%;
+    max-width: 500px; 
     padding: 20px;
     border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 15px;
 }
 
 button{
-    background-color: #57CFAE;
+    background-color: rgb(32, 145, 126);
+    font-style: oblique;
 }
 
 .buttonr{
@@ -26,4 +29,59 @@ button{
 .error {
     color: red;
     font-size: 14px;
+}
+
+input {
+    background-color: #202020; 
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
+
+.text{
+    font-size: 12px;
+}
+
+input:focus {
+    outline: none; 
+    border-color: rgb(32, 145, 126); 
+}
+
+select {
+    width: 94%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #202020; 
+    font-size: 14px; 
+    appearance: none; 
+}
+
+select:focus {
+    outline: none; 
+    border-color: rgb(32, 145, 126); 
+}
+
+select option {
+    background-color:#202020; 
+}
+
+select option:checked {
+    background-color: rgb(32, 145, 126); 
+    color: #fff; 
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .buttonr,
+    .text,
+    button {
+        width: 100%;
+    }
+}

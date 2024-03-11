@@ -81,17 +81,16 @@ body {
 }
 
 .found-game {
-    background-color: #065a45; /* Cambia este color según tus necesidades */
-    border: 2px solid #ffffff; /* Define el tamaño y el color del borde */
-    margin: 10px; /* Añade espacio alrededor de cada elemento */
-    padding: 10px; /* Añade espacio dentro de cada elemento */
-    /* Aquí puedes agregar más estilos si lo necesitas */
+    background-color: #065a45;
+    border: 2px solid #ffffff;
+    margin: 10px;
+    padding: 10px;
 }
 
 .found-games-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Esto permitirá que los elementos pasen a la siguiente línea si no hay suficiente espacio */
-    justify-content: center; /* Centra los elementos en la línea */
-    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; 
 }
