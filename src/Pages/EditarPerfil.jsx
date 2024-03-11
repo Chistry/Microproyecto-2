@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../user';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
-import { collection, getDocs, query, where, doc, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, updateDoc, getDoc } from 'firebase/firestore';
 import Header from './Header/Header';
 import styles from './PerfilUsuario.module.css';
 
@@ -14,6 +14,8 @@ export default function EditarPerfil(){
     const mail = usuario.email
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
+    const [videojuegoPreferido, setVideojuegoPreferido] = useState('');
+    const [videojuegos, setVideojuegos] = useState([]);
     const [error, setError] = useState('');
     const [datosUsuario, setDatosUsuario] = useState('');
 
@@ -47,12 +49,35 @@ export default function EditarPerfil(){
         }
     }, [usuario]);
 
+    useEffect(() => {
+        const obtenerVideojuegos = async () => {
+          try {
+            const docRef = doc(db, 'videojuegos', 'keyvideojuegos');
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+              const videojuegosData = docSnap.data();
+              const juegos = Object.values(videojuegosData).map(videojuego => videojuego.titulo);
+              console.log(juegos)
+              setVideojuegos(juegos);
+            } else {
+              console.log('No se encontraron datos de videojuegos');
+              setVideojuegos([]);
+            }
+          } catch (error) {
+            setError("Error al cargar la lista de videojuegos");
+          }
+        };
+    
+        obtenerVideojuegos();
+      }, []);
+
     const handleConfirmar = async () => {
         try {
             const userDocRef = doc(db, 'usuarios', usuario.uid);
             await updateDoc(userDocRef, {
                 nombre: nombre,
-                apellido: apellido
+                apellido: apellido,
+                videojuegoPreferido: videojuegoPreferido
             });
             navegar('/profilepage', {replace: true});
         } catch (error) {
@@ -89,7 +114,11 @@ export default function EditarPerfil(){
                     </div>
                     <p>Email: {usuario.email}</p>
                     <p>Nombre de Usuario: {datosUsuario.nombreUsuario}</p>
-                    <p>Videojuego Preferido: {datosUsuario.videojuegoPreferido}</p>
+                    <select value={videojuegoPreferido} onChange={(e) => setVideojuegoPreferido(e.target.value)}>
+                    {videojuegos.map((juego, index) => (
+                        <option key={index} value={juego}>{juego}</option>
+                    ))}
+                    </select>
                 </div>
             <button className={styles.button1} onClick={handleConfirmar}>Confirmar</button>
             <button onClick={() => navegar('/profilepage', {replace: true})}>Cancelar</button>

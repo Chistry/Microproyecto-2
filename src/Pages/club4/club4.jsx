@@ -80,9 +80,6 @@ const Club4 = () => {
         setTimeout(() => {
             setMensaje('');
           }, 1000);
-        setTimeout(() => {
-            setConfirmar(false);
-          }, 2000);
     };
 
     const handleCancelar = () => {
