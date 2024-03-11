@@ -31,9 +31,9 @@ const Club4 = () => {
 
     useEffect(() =>{
         if (!usuario) {
-          navegar('/login', {replace: true})
+            navegar('/login', {replace: true})
         }
-      }, [usuario, navegar]);
+    }, [usuario, navegar]);
 
     useEffect(() => {
         const fetchClubData = async () => {

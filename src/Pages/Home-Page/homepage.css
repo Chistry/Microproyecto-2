@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .homepage {
     text-align: center;
     text-shadow: 2px 2px 4px #000000;
 }
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    margin: 20px;
+}	
 
 .club-section {
     display: flex;

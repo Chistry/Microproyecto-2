@@ -5,6 +5,15 @@
   text-align: center;
 }
 body {
-  background-image: url('./videojogo.png');
-  background-size:100% ; /* Asegura que la imagen de fondo cubra todo el elemento */
+  background-image: url('./fondo.jpg');
+  background-size:30% ; 
+}
+.homepage-app {
+  overflow-y: auto;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

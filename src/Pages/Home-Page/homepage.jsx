@@ -16,7 +16,8 @@ function HomePage() {
 
     return (
         <div className="homepage">
-            <h1>🕹️ VideoClub 👾</h1>
+            <h1>🕹️ Infinity Pixels 👾</h1>
+            <h2>¡Explora y únete a nuestros clubs de videojuegos!</h2>	
             <div className="club-section">
                 <button className="club1" onClick={() => navegar('/club1', {replace: true})}>
                     <h2>Club de Aventureros</h2>
