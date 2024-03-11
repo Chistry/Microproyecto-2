@@ -47,12 +47,17 @@ function Header() {
 
     const handleSearch = () => {
         // Buscar el juego en VideoDatabase
-        const juegosEncontrados = Object.values(VideoDatabase).filter(juego =>
-            juego.titulo.toLowerCase() === searchTerm.toLowerCase() ||
-            juego.genero.toLowerCase() === searchTerm.toLowerCase()
-        );
+        const juegosEncontrados = Object.entries(VideoDatabase).filter(([key, juego]) =>
+            key === searchTerm ||
+            juego.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            juego.genero.toLowerCase().includes(searchTerm.toLowerCase())
+        ).map(entry => entry[1]);
         setFoundGame(juegosEncontrados);
     };
+    
+    
+    
+    
 
     return (
         <header ref={headerRef} className="header">
