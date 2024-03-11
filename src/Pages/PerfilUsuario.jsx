@@ -43,7 +43,7 @@ export default function PerfilUsuario(){
         }
     }, [usuario]);
 
-    if (usuario === null && usuario === undefined) {
+    if (usuario === null && usuario === undefined && mail === null && mail === undefined) {
         return <p>Cargando...</p>;
     }
 

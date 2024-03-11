@@ -1,7 +1,7 @@
 import './club5.css';
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase.js'; // Ajusta la ruta según la estructura de tu proyecto
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, updateDoc } from 'firebase/firestore';
 import Header from '../Header/Header.jsx';
 import { useUser } from '../../user';
 import { useNavigate } from 'react-router-dom';
@@ -27,13 +27,68 @@ const Club5 = () => {
     /*ID, titulo, genero, descripcion*/
 
     const usuario = useUser();
+    const usuariomail = usuario.email;
+    const usuariouid = usuario.uid;
     const navegar = useNavigate();
+    const [datosUsuario, setDatosUsuario] = useState('');
+    const [confirmar, setConfirmar] = useState(false);
+    const [mensaje, setMensaje] = useState('');
 
     useEffect(() =>{
         if (!usuario) {
           navegar('/login', {replace: true})
         }
       }, [usuario, navegar]);
+
+      const handleUnirseClick = () => {
+        setConfirmar(true);
+      };
+
+      const handleConfirmar = async (usuario, uid, grupoNombre) => {
+        const obtenerDatosUsuario = async () => {
+            try {
+                const q = query(collection(db, 'usuarios'), where('email', '==', usuario));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    querySnapshot.forEach((doc) => {
+                        setDatosUsuario(doc.data());
+                    });
+                } else {
+                    console.log('No se encontraron datos para el usuario con email:', usuario);
+                }
+            } catch (error) {
+                console.error('Error al obtener datos del usuario:', error);
+            }
+        };
+        console.log(grupoNombre)
+        console.log(uid)
+        console.log(datosUsuario[grupoNombre]);
+        try {
+            await obtenerDatosUsuario();
+            if (datosUsuario[grupoNombre] === true) {
+                setMensaje('¡Ya estás en este club!');
+            } else {
+                const Ref = doc(db, "usuarios", uid);
+                await updateDoc(Ref, {
+                    [grupoNombre]: true
+                });
+                setMensaje('¡Te has unido al club exitosamente!');
+            }
+        } catch (error) {
+            setMensaje('Hubo un error al intentar unirse al club.');
+        }
+        setTimeout(() => {
+            setMensaje('');
+          }, 1000);
+        setTimeout(() => {
+            setConfirmar(false);
+          }, 2000);
+    };
+
+    const handleCancelar = () => {
+        setConfirmar(false);
+      };
+
 
     useEffect(() => {
         const fetchClubData = async () => {
@@ -108,6 +163,9 @@ const Club5 = () => {
         fetchVideogamesData();
     }, [clubVideojuegos1, clubVideojuegos2, clubVideojuegos3]);
     
+    if (usuario === null && usuario === undefined && usuariomail === null && usuariomail === undefined) {
+        return <p>Cargando...</p>;
+    }
 
     return (
         <div className="container">
@@ -136,7 +194,15 @@ const Club5 = () => {
                                     <p>{VideoDescription3}</p>
                         </div>
                     </div>
-                    <button className="join-button">¡Unirse!</button>
+                    <button className="join-button" onClick={handleUnirseClick}>¡Unirse!</button>
+                    {confirmar && (
+                        <div>
+                        <p>¿Estás seguro de que deseas unirte a este club?</p>
+                        <button className="buttonconfirmar" onClick={() => handleConfirmar(usuariomail, usuariouid, clubName.replace(/\s/g, ''))}>Confirmar</button>
+                        <button className="buttoncancelar" onClick={handleCancelar}>Cancelar</button>
+                        {mensaje && <p>{mensaje}</p>}
+                        </div>
+                    )}
                 </div>
             </div>
             

@@ -53,7 +53,7 @@ export default function InicioSesion() {
   return (
     <div className={styles.inicio}>
       <div className={styles.container}>
-        <h2 className={styles.text}>Iniciar Sesión</h2>
+        <h2>Iniciar Sesión</h2>
         <div className={styles.form}>
           <form onSubmit={handleLogin}>
             <input
@@ -71,9 +71,9 @@ export default function InicioSesion() {
           </form>
         </div>
         <button className={styles.buttonS} onClick={() => handleLogin()} type="submit">Iniciar Sesión</button>
-        <button type="button" onClick={() => handleGoogleLogin()}>Iniciar Sesión con Google</button>
+        <button className={styles.buttonG} type="button" onClick={() => handleGoogleLogin()}>Iniciar Sesión con Google</button>
         {error && <p className={styles.error}>{error}</p>}
-        <p>No tienes cuenta? Registrate acá abajo</p>
+        <p className={styles.text}>No tienes cuenta? Registrate acá abajo</p>
         <button onClick={() => navegar('/register', {replace: true})}>Registro</button>
       </div>
     </div>

@@ -105,6 +105,15 @@ body {
     margin: 20px auto;
 }
 
+.buttonconfirmar, .buttoncancelar{
+    background-color: rgb(32, 145, 126);
+    font-style: oblique;
+}
+
+.buttonconfirmar{
+    margin-right: 20px;
+}
+
 @media (max-width: 768px) {
     .club-description {
         max-width: 100%;
